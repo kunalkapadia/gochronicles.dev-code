@@ -1,6 +1,6 @@
 package sorting
 
-// BubbleSort sorts the slice of int
+// BubbleSort sorts the slice
 func BubbleSort(nums []int) []int {
 	n := len(nums)
 
@@ -11,7 +11,7 @@ func BubbleSort(nums []int) []int {
 		// Run the inner loop on the rest of unsorted slice
 		for j := n - 1; j >= i; j-- {
 
-			// If number at j index is smaller than the one at j-1, swap them
+			// If value at index j is smaller than the one at j-1, swap them
 			if nums[j] < nums[j-1] {
 				nums[j], nums[j-1] = nums[j-1], nums[j]
 			}
