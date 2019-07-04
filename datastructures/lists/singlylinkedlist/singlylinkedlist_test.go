@@ -5,7 +5,26 @@ import (
 	"testing"
 )
 
-func TestListNew(t *testing.T) {
+func TestListNewTableDriven(t *testing.T) {
+	testCases := []struct {
+		name   string
+		values []interface{}
+		want   []interface{}
+	}{
+		{"Empty", []interface{}{}, []interface{}{}},
+		{"NonEmpty", []interface{}{1, 2, 3}, []interface{}{1, 2, 3}},
+	}
+
+	for _, tc := range testCases {
+		list := New(tc.values...)
+		got := list.Values()
+		if !reflect.DeepEqual(got, tc.want) {
+			t.Fatalf("Got %v, want %v", got, tc.want)
+		}
+	}
+}
+
+func TestListNewSubtest(t *testing.T) {
 	testCases := []struct {
 		name   string
 		values []interface{}
